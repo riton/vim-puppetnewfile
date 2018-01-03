@@ -1,4 +1,7 @@
-"
+" puppetnewfile.vim - Helper for day2day puppet module development
+" Maintainer:         Remi Ferrand (riton)
+" Version:            1.0
+
 if exists('g:loaded_puppetnewfile') || &cp
   finish
 endif
