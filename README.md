@@ -8,6 +8,8 @@ I was getting bored of always creating manually:
 * my directories structure (`mkdir -p manifests/profile/myserver/mysomething`)
 * my puppet files header (`class mymodule::profile::myserver::mysomething::myclass`)
 
+and I didn't want to leave my `vi` instance.
+
 ## Install
 
 If you don't have a preferred installation method, one option is to install [pathogen.vim](https://github.com/tpope/vim-pathogen), and then copy and paste:
