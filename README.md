@@ -30,6 +30,8 @@ For instance, if your current working directory is `/home/myuser/dev/puppet/mymo
 This plugin also supports (for my personal use) the fact that module directories can end with a `.git`. So `/home/myuser/dev/puppet/mymodule.git` will also extract the _module name_ `mymodule` as expected.
 
 
+### Example from scratch
+
 ```
 $ mkdir /tmp/test-vim-puppetnewfile && cd /tmp/test-vim-puppetnewfile
 ```
