@@ -61,14 +61,23 @@ function! s:writeBufferFromTemplate(templateName, moduleName, resourceName) abor
   endfor
 endfunc
 
+function! s:resourceNameFromComponents(moduleName, components)
+  if len(a:components) == 1 && a:components[0] == 'init'
+    let className = a:moduleName
+  else
+    let className = join([a:moduleName] + a:components, "::")
+  endif
+  return l:className
+endfunc
+
 function! s:createNewClassFile(moduleName, components)
-  let className = join([a:moduleName] + a:components, "::")
+  let className = s:resourceNameFromComponents(a:moduleName, a:components)
   call s:writeBufferFromTemplate('class.pp', a:moduleName, l:className)
 endfunc
 
 function! s:createNewFunctionFile(moduleName, components)
-  let className = join([a:moduleName] + a:components, "::")
-  call s:writeBufferFromTemplate('function.pp', a:moduleName, l:className)
+  let funcName = s:resourceNameFromComponents(a:moduleName, a:components)
+  call s:writeBufferFromTemplate('function.pp', a:moduleName, l:funcName)
 endfunc
  
 "
