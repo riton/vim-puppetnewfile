@@ -15,14 +15,23 @@ if !exists('g:puppetnewfile_auto_create_dirs')
   let g:puppetnewfile_auto_create_dirs = 1
 endif
 
+if !exists('g:puppetnewfile_prune_dir_prefix')
+  let g:puppetnewfile_prune_dir_prefix = [ 'module-', 'puppet-' ]
+endif
+
 "
 " Helpers
 "
 function! s:getCurrentModuleNameFromWorkdir()
   let cwd = getcwd()
   let dirname = split(cwd, "/")[-1]
-  let rdirname = split(dirname, ".git")[0]
-  return l:rdirname
+  let module_name = split(dirname, ".git")[0]
+  
+  for pattern_to_prune in g:puppetnewfile_prune_dir_prefix
+    let module_name = substitute(l:module_name, "^".pattern_to_prune, "", "")
+  endfor
+
+  return l:module_name
 endfunc
 
 function! s:readTemplate(tplName) abort
