@@ -81,3 +81,11 @@ You must have a `class.pp` and `function.pp` file in this directory.
 Those will be used to create new files.
 
 Each instance of `__RESOURCENAME__` and `__MODULENAME__` will be replaced accordingly.
+
+**Directory prefix to prune to find module name from workdir**
+
+```
+let g:puppetnewfile_prune_dir_prefix = [ 'module-', 'puppet-' ]
+```
+
+Remove `module-` or `puppet-` from current directory name to extract `module name`.
